@@ -1,0 +1,22 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class BasicMover : MonoBehaviour {
+	public float spinSpeed = 180f;
+	public float motionMagnitude = 0.1f;
+
+	public bool doSpin = true;
+	public bool doMotion = false;
+
+	void Update () {
+		if (doSpin) {
+			gameObject.transform.Rotate (Vector3.up * spinSpeed * Time.deltaTime);
+		}
+
+		if (doMotion) {
+			gameObject.transform.Translate (Vector3.up * Mathf.Cos (Time.timeSinceLevelLoad) * motionMagnitude);
+		}
+
+	}
+
+}
